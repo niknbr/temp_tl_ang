@@ -1,0 +1,17 @@
+.tl-outer{
+    position:relative
+}
+.tl-inner{
+    position:absolute;
+    top:50%;
+    bottom:50%;
+    transform:translate(-50%, -50%);
+}
+.tl-start{
+ fill:#DDD;
+ stroke-width:0;
+}
+.tl-line{
+    stroke: rgba(0,0,0,0);
+    fill:#DDD;
+}
