@@ -18,9 +18,26 @@
             //  &     Allows an external function to be passed into the directive and invoked
 
           },
-          templateUrl: `tl.html`
+          templateUrl: `tl.html`,
+          link: function (scope, element, attr) {
+            scope.constants = {
+              startCircle: {
+                x: 50,
+                y: 50
+              }
+            }
+            scope.variables = {
+              startCircle: {
+                radius: 20,
+              },
+              line: {
+                height: 8,
+                width: 500,
+                skew: -45
+              }
+            };
 
-          //controller:function(ele,at)
+          }
         }
       });
   </script>

@@ -1,11 +1,36 @@
 <div>
+    
     <div class="tl-outer">
         <div class="tl-inner">
             <svg width="100%">
-                <circle class="tl-start" cx="50" cy="50" r="20"  />
-                <rect class="tl-line" x="100" y="10" width="500" height="8" transform="skewX(-45)" />
+                <circle class="tl-start" 
+                cx="{{constants.startCircle.x}}" 
+                cy="{{constants.startCircle.y}}" 
+                r="{{variables.startCircle.radius}}" />
+
+                <rect class="tl-line" 
+                x="{{(constants.startCircle.x*2)}}" 
+                y="{{(constants.startCircle.x-variables.line.height/2)}}" 
+                width="{{variables.line.width}}" 
+                height="{{variables.line.height}}" 
+                transform="skewX({{variables.line.skew}})" />
+
+                 <circle class="tl-start" 
+                cx="{{constants.startCircle.x+variables.line.width}}" 
+                cy="{{constants.startCircle.y}}" 
+                r="{{variables.startCircle.radius}}" />
+               
             </svg>
+ 
         </div>
     </div>
 
+</div>
+
+
+<div class="debug-panel">
+    {{constants.startCircle.x+variables.line.width}}
+    <br> Timeline length : <input type="number" ng-model="variables.line.width"/> 
+    <br> Timeline height: <input type="number" ng-model="variables.line.height"/> 
+    <br> Start circle radius : <input type="number" ng-model="variables.startCircle.radius"/> 
 </div>

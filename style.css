@@ -1,17 +1,42 @@
+/*Debug*/
+body{
+background-color: #11113f;
+}
+
+.debug-panel{
+    border:1px solid #DDD;
+    padding:10px;
+    color:white;
+    background-color: black;
+    width:30%;
+    font:'Inconsolata' ;
+}
+.debug-panel input{
+        outline:none;
+        background-color:#222;
+        padding:3px;
+        color:white;
+        border:1px solid #DDD;
+}
+
+
+/*Specific*/
 .tl-outer{
-    position:relative
+    position:relative;
+    transition:all 2s linear 1s !important;
 }
 .tl-inner{
-    position:absolute;
+    /*position:absolute;
     top:50%;
-    bottom:50%;
-    transform:translate(-50%, -50%);
+    bottom:50%;*/
+    /*transform:translate(-50%, -50%);*/
 }
 .tl-start{
- fill:#DDD;
- stroke-width:0;
+    fill:#DDD;
+    stroke-width:0;
 }
 .tl-line{
-    stroke: rgba(0,0,0,0);
+    stroke: rgba(0,0,0,0);    
     fill:#DDD;
+    
 }
