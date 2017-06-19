@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <script data-require="angular.js@1.6.2" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+  <script data-require="angular.js@1.6.2" data-semver="1.6.2" src="/scripts/angular.js"></script>
   <link rel="stylesheet" href="style.css" />
   <script>
     angular.module("testapp", []).controller('testController', function ($scope) {
@@ -20,13 +20,14 @@
           },
           templateUrl: `tl.html`,
           link: function (scope, element, attr) {
-            scope.constants = {
+            scope.c = {
               startCircle: {
                 x: 50,
                 y: 50
-              }
+              },
+              minSpacing: 50
             }
-            scope.variables = {
+            scope.v = {
               startCircle: {
                 radius: 20,
               },
@@ -34,8 +35,23 @@
                 height: 8,
                 width: 500,
                 skew: -45
-              }
+              },
+              horizontalSpacing: 10,
+              count:10,
+              verticalSpacing:50,
+              events: [1, 2, 3, 4, 5]
             };
+
+            scope.v.calculate = function () {
+              let self = this;
+              self.horizontalSpacing = self.line.width / self.events.length;
+              if (self.horizontalSpacing < 50) {
+                self.horizontalSpacing = 50;
+                self.split++;
+              }
+            }
+
+            scope.v.calculate();
 
           }
         }

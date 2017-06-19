@@ -34,9 +34,13 @@ background-color: #11113f;
 .tl-start{
     fill:#DDD;
     stroke-width:0;
+    box-shadow:0 0 10px 10px black;
 }
 .tl-line{
     stroke: rgba(0,0,0,0);    
     fill:#DDD;
+    
+}
+.circle{
     
 }

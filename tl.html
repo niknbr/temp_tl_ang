@@ -2,23 +2,31 @@
     
     <div class="tl-outer">
         <div class="tl-inner">
-            <svg width="100%">
+            <svg width="100%" height="100%">
                 <circle class="tl-start" 
-                cx="{{constants.startCircle.x}}" 
-                cy="{{constants.startCircle.y}}" 
-                r="{{variables.startCircle.radius}}" />
+                cx="{{c.startCircle.x}}" 
+                cy="{{c.startCircle.y}}" 
+                r="{{v.startCircle.radius}}" />
 
                 <rect class="tl-line" 
-                x="{{(constants.startCircle.x*2)}}" 
-                y="{{(constants.startCircle.x-variables.line.height/2)}}" 
-                width="{{variables.line.width}}" 
-                height="{{variables.line.height}}" 
-                transform="skewX({{variables.line.skew}})" />
+                x="{{(c.startCircle.x*2)+($index*v.verticalSpacing)}}" 
+                y="{{(c.startCircle.x-v.line.height/2)+($index*v.verticalSpacing)}}" 
+                width="{{v.line.width}}" 
+                height="{{v.line.height}}" 
+                transform="skewX({{v.line.skew}})"
+                ng-repeat="x in [].constructor(v.count) track by $index" 
+                />
+
+                <circle class="tl-start circle" 
+                cx="{{c.startCircle.x+(v.horizontalSpacing*($index+1))}}" 
+                cy="{{c.startCircle.y}}" 
+                r="{{v.startCircle.radius}}" 
+                ng-repeat="event in v.events track by $index"/>
 
                  <circle class="tl-start" 
-                cx="{{constants.startCircle.x+variables.line.width}}" 
-                cy="{{constants.startCircle.y}}" 
-                r="{{variables.startCircle.radius}}" />
+                cx="{{c.startCircle.x+v.line.width}}" 
+                cy="{{c.startCircle.y}}" 
+                r="{{v.startCircle.radius}}" />
                
             </svg>
  
@@ -29,8 +37,14 @@
 
 
 <div class="debug-panel">
-    {{constants.startCircle.x+variables.line.width}}
-    <br> Timeline length : <input type="number" ng-model="variables.line.width"/> 
-    <br> Timeline height: <input type="number" ng-model="variables.line.height"/> 
-    <br> Start circle radius : <input type="number" ng-model="variables.startCircle.radius"/> 
+    {{c.startCircle.x+v.line.width}}
+    <br> Timeline length : <input type="number" ng-model="v.line.width" ng-change="v.calculate()"   /> 
+    <br> Timeline height: <input type="number" ng-model="v.line.height"/> 
+    <br> Start circle radius : <input type="number" ng-model="v.startCircle.radius"/> 
+    <br> Vertical Spacing : <input type="number" ng-model="v.verticalSpacing"/> 
+ 
+
+    <!--<div ng-repeat="x in [].constructor(5) track by $index">
+        test
+    </div>-->
 </div>
